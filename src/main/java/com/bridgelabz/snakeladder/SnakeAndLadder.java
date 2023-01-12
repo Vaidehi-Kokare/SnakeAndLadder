@@ -22,7 +22,8 @@ public class SnakeAndLadder {
                 case NOPLAY:
                     break;
                 case LADDER:
-                    pos += dice;
+                    if (pos+dice<=100)
+                        pos += dice;
                     break;
                 case SNAKE:
                     pos -= dice;
