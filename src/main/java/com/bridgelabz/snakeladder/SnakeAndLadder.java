@@ -1,4 +1,5 @@
 package com.bridgelabz.snakeladder;
+
 public class SnakeAndLadder {
     public static final int NOPLAY=0;
     public static final int LADDER=1;
@@ -14,19 +15,24 @@ public class SnakeAndLadder {
     public static void main(String[] args) {
         System.out.println("Welcome to Snake and Ladders Game");
         System.out.println("Start position is: " + pos);
-        int dice = rollDice();
-        System.out.println(dice);
-        int option = getOption();
-        switch (option) {
-            case NOPLAY:
-                break;
-            case LADDER:
-                pos += dice;
-                break;
-            case SNAKE:
-                pos -= dice;
-                break;
+        while(pos!=100){
+            int dice = rollDice();
+            int option = getOption();
+            switch (option) {
+                case NOPLAY:
+                    break;
+                case LADDER:
+                    pos += dice;
+                    break;
+                case SNAKE:
+                    pos -= dice;
+                    if (pos<0)
+                        pos = 0;
+                    break;
+            }
         }
-        System.out.println("Player position is: " + pos);
+        System.out.println("Player position: " + pos);
+        System.out.println("Player Wins");
+
     }
 }
